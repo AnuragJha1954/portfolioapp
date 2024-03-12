@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <!--=============== FONT AWESOME ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+    <nav id="navbar" class="navbar"><a href="#"></a></nav>
+
+    <div class="container">
+        <!--=============== NAVIGATION MENU ===============-->
+
+        <div class="menu">
+            <a href="/" class="menu-icon fa-solid fa-house"></a>
+            <a href="#about" class="menu-icon fa-solid fa-user"></a>
+            <a href="#contact" class="menu-icon fa-solid fa-envelope"></a>
+            <a href="#terminalPage" class="menu-icon fa-solid fa-terminal"></a>
+        </div>
+
+        <!--=============== MAIN "WINDOW" ===============-->
+
+        <div class="portfolio">
+            <!--=============== HEADER SECTION ===============-->
+
+            <section class="header">
+                <img class="header-img"
+                    src="{% static 'images/profile-pic-1.png' %}"
+                    alt="" />
+                <h1>Anurag Jha</h1>
+                <h2>Software Engineer I</h2>
+                <h2>Backend Developer</h2>
+                <div class="socials">
+                    <a href="https://www.linkedin.com/in/anuragjha1954" target="_blank" class="fa-brands fa-linkedin-in" id="profile-link"></a>
+                    <a href="https://github.com/AnuragJha1954" target="_blank" class="fa-brands fa-github"></a>
+                    <a href="mailto:anuragjha1954@gmail.com" target="_blank" class="fa-solid fa-envelope"></a>
+                </div>
+                <a href="" class="cta">DownIoad CV</a>
+            </section>
+
+            <!--=============== CONTENT SECTION ===============-->
+
+            <div class="content">
+                <!--=============== HOME ===============-->
+
+                <section class="content-card home" id="welcome-section">
+                    <h1>Hello, I am Anurag Jha</h1>
+                </section>
+
+                <!--=============== ABOUT ME ===============-->
+
+                <section class="content-card about" id="about">
+                    <h1>About me</h1>
+                    <div class="about-item about-me">
+                        <p>
+                            Hi, I'm Anurag Jha, a passionate self-taught Programmer, an open-source enthusiast, and a maintainer. My passion for Systems lies in dreaming up ideas and making them come true with elegant interfaces.
+                        </p>
+                        <p>
+                            I’m a research scientist working to better understand About AI. My expertise includes Linux System Administration, IT Support Specialist, Web development, and implementation of AI research tools.
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <div class="about-item skills">
+                            <h1>Skills</h1>
+                            <span class="skill">HTML</span>
+                            <span class="skill">CSS</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">Node.js</span>
+                            <span class="skill">React</span>
+                            <span class="skill">SQL</span>
+                            <span class="skill">Git</span>
+                            <span class="skill">API</span>
+                            <span class="skill">Unix/Linux</span>
+                            <span class="skill">Jira</span>
+                            <span class="skill">Confluence</span>
+                            <span class="skill">Figma</span>
+                        </div>
+
+                        <div class="about-item languages">
+                            <h1>Languages</h1>
+                            <div class="language">
+                                <p>Bangla</p>
+                                <span class="bar"><span class="bangla"></span></span>
+                            </div>
+                            <div class="language">
+                                <p>English</p>
+                                <span class="bar"><span class="english"></span></span>
+                            </div>
+                            <div class="language">
+                                <p>Chinese</p>
+                                <span class="bar"><span class="chinese"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <!--=============== EXPERIENCE ===============-->
+
+                {% comment %} <section class="content-card experience" id="experience">
+                    <h1>Experience</h1>
+                    <div class="timeline">
+                        <div class="timeline-items">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2022 - now</div>
+                                <div class="timeline-content">
+                                    <h3>timeline item 1</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Ab iusto accusantium nostrum eligendi debitis quisquam.
+                                        Corporis at voluptatem culpa officia.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2015 - 2022</div>
+                                <div class="timeline-content">
+                                    <h3>timeline item 2</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Ab iusto accusantium nostrum eligendi debitis quisquam.
+                                        Corporis at voluptatem culpa officia.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2014 - 2015</div>
+                                <div class="timeline-content">
+                                    <h3>timeline item 3</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Ab iusto accusantium nostrum eligendi debitis quisquam.
+                                        Corporis at voluptatem culpa officia.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section> {% endcomment %}
+
+                <!--=============== CONTACT ===============-->
+
+                <section class="content-card contact" id="contact">
+                    <h1>Contact</h1>
+                    <form class="form" id="form" action="#">
+                        <div class="input-box">
+                            <input type="text" class="text-input" name="name" placeholder="Name" />
+                        </div>
+                        <div class="input-box">
+                            <input type="email" class="text-input" name="email" id="email" placeholder="Email" />
+                        </div>
+                        <div class="input-box">
+                            <input type="subject" class="text-input" name="subject" id="subject"
+                                placeholder="Subject" />
+                        </div>
+                        <div class="input-box">
+                            <textarea name="text" class="message" placeholder="Message..."></textarea>
+                        </div>
+                        <div class="input-box">
+                            <input type="submit" class="submit-btn" id="submit" value="submit" />
+                        </div>
+                    </form>
+                </section>
+
+
+                <section class="content-card" id="terminalPage">
+                    <div class="fakeMenu">
+                        <div class="fakeButtons fakeClose"></div>
+                        <div class="fakeButtons fakeMinimize"></div>
+                        <div class="fakeButtons fakeZoom"></div>
+                      </div>
+                      <div class="fakeScreen">
+                        <div class="terminal">
+                          <div class="output" id="output"></div>
+                          <div class="input">
+                            <span id="input-prefix">anuragjha@portfolio-terminal></span>
+                            <input type="text" id="input" placeholder="Type your command..." autofocus>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                          const inputElement = document.getElementById('input');
+                          const outputElement = document.getElementById('output');
+                      
+                          inputElement.addEventListener('keydown', function(event) {
+                            if (event.key === 'Enter') {
+                              handleCommand(inputElement.value);
+                              inputElement.value = '';
+                            }
+                          });
+                      
+                          function handleCommand(command) {
+                            const output = document.createElement('p');
+                            output.textContent = `$ ${command}`;
+                            outputElement.appendChild(output);
+                            outputElement.scrollTo({
+                              top: outputElement.scrollHeight,
+                              behavior: 'smooth'
+                            });
+                      
+                            const commandParts = command.trim().split(' ');
+                            switch (commandParts[0]) {
+                              case 'about':
+                                aboutCommand();
+                                break;
+                              case 'help':
+                                helpCommand();
+                                break;
+                              default:
+                                simulateResponse(command);
+                                break;
+                            }
+                          }
+                      
+                          function simulateResponse(command) {
+                            const response = document.createElement('p');
+                            response.textContent = `Command not found: "${command}"`;
+                            outputElement.appendChild(response);
+                          }
+                      
+                          function aboutCommand() {
+                            // Redirect to a page or take any action needed for "about" command
+                            window.location.href = 'about_page_url_here'; // Replace 'about_page_url_here' with the actual URL
+                          }
+                      
+                          function helpCommand() {
+                            const response = document.createElement('p');
+                            response.innerHTML = `
+                          <strong>Available commands:</strong>
+                          <br><br>
+                          <span style="color: #00ff00;">about</span>: Redirect to about page.
+                          <br>
+                          <span style="color: #00ff00;">help</span>: Display available commands and their descriptions.
+                        `;
+                            outputElement.appendChild(response);
+                          }
+                        });
+                      </script>
+                      
+                </section>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

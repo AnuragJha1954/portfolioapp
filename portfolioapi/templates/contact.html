@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <!--=============== FONT AWESOME ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+    <nav id="navbar" class="navbar"><a href="#"></a></nav>
+
+    <div class="container">
+        <!--=============== NAVIGATION MENU ===============-->
+
+        <div class="menu">
+            <a href="/" class="menu-icon fa-solid fa-house"></a>
+            <a href="about" class="menu-icon fa-solid fa-user"></a>
+            <a href="contact" class="menu-icon fa-solid fa-envelope"></a>
+            <a href="terminal" class="menu-icon fa-solid fa-terminal"></a>
+        </div>
+
+        <!--=============== MAIN "WINDOW" ===============-->
+
+        <div class="portfolio">
+            <!--=============== HEADER SECTION ===============-->
+
+            <section class="header">
+                <img class="header-img"
+                    src="{% static 'images/profile-pic-1.png' %}"
+                    alt="" />
+                <h1>Anurag Jha</h1>
+                <h2>Software Engineer I</h2>
+                <h2>Backend Developer</h2>
+                <div class="socials">
+                    <a href="https://www.linkedin.com/in/anuragjha1954" target="_blank" class="fa-brands fa-linkedin-in" id="profile-link"></a>
+                    <a href="https://github.com/AnuragJha1954" target="_blank" class="fa-brands fa-github"></a>
+                    <a href="mailto:office.anuragjha@gmail.com" target="_blank" class="fa-solid fa-envelope"></a>
+                </div>
+                <a href="" class="cta">DownIoad CV</a>
+            </section>
+
+            <!--=============== CONTENT SECTION ===============-->
+
+            <div class="content">
+                <!--=============== CONTACT ===============-->
+
+                <section class="content-card contact" id="contact">
+                    <h1>Contact</h1>
+                    <form class="form" id="form" action="#">
+                        <div class="input-box">
+                            <input type="text" class="text-input" name="name" placeholder="Name" />
+                        </div>
+                        <div class="input-box">
+                            <input type="email" class="text-input" name="email" id="email" placeholder="Email" />
+                        </div>
+                        <div class="input-box">
+                            <input type="subject" class="text-input" name="subject" id="subject"
+                                placeholder="Subject" />
+                        </div>
+                        <div class="input-box">
+                            <textarea name="text" class="message" placeholder="Message..."></textarea>
+                        </div>
+                        <div class="input-box">
+                            <input type="submit" class="submit-btn" id="submit" value="Submit" />
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-popup" class="loading-popup">
+        <div class="loading-spinner"></div>
+    </div>
+    <!-- Custom popup -->
+    <div id="response-popup" class="response-popup">
+        <div class="popup-content">
+            <span id="response-message"></span>
+            <button id="close-popup-btn">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Display loading popup
+            document.getElementById('loading-popup').style.display = 'block';
+
+            var formData = new FormData(this);
+
+            fetch('/contact', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hide loading popup
+                document.getElementById('loading-popup').style.display = 'none';
+
+                const responsePopup = document.getElementById('response-popup');
+                const responseMessage = document.getElementById('response-message');
+
+                if (data.success) {
+                    responseMessage.textContent = data.message;
+                } else {
+                    responseMessage.textContent = 'Failed to send email: ' + data.message;
+                }
+
+                // Show response popup
+                responsePopup.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while sending the email.');
+
+                // Hide loading popup
+                document.getElementById('loading-popup').style.display = 'none';
+            });
+        });
+
+        // Close response popup and redirect to '/' when close button is clicked
+        document.getElementById('close-popup-btn').addEventListener('click', function() {
+            document.getElementById('response-popup').style.display = 'none';
+            window.location.href = '/';
+        });
+    </script>
+</body>
+
+</html>
